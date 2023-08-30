@@ -1,6 +1,5 @@
 package com.example.ppm_lab03.screens
 
-
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,7 +13,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 
 @Composable
-fun MothersDayCards(navController: NavController, name: String?, message: String?, receiver: String?){
+fun FathersDayCards(navController: NavController, name: String?, message: String?, receiver: String?){
     Column(
         modifier = Modifier
             .fillMaxSize(),
@@ -22,7 +21,7 @@ fun MothersDayCards(navController: NavController, name: String?, message: String
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        TopTitle(tittle = "Día de la madre", navController)
+        TopTitle(tittle = "Día del padre", navController)
 
         var currentSelection by remember { mutableStateOf("1") }
 
@@ -31,12 +30,9 @@ fun MothersDayCards(navController: NavController, name: String?, message: String
             "2" -> CustomCard(name, message, receiver, 2)
             "3" -> CustomCard(name, message, receiver, 3)
             "4" -> CustomCard(name, message, receiver, 4)
-
         }
 
         BottomBar(currentSelection){newSelection -> currentSelection = newSelection }
 
     }
-
 }
-

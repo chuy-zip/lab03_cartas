@@ -108,22 +108,21 @@ fun InputScreen(navController: NavController){
             singleLine = false
         )
 
-
-
         Button(onClick = {
             if(selectedItem == "Cumpleaños"){
-
+                navController.navigate(route = AppScreens.BirthdayCards.route + "/$nameLastname" + "/$message" + "/$receiver")
             }
             else if(selectedItem == "Graduación"){
                 navController.navigate(route = AppScreens.GraduationCards.route + "/$nameLastname" + "/$message" + "/$receiver")
             }
             else if(selectedItem == "Año nuevo chino"){
-
+                navController.navigate(route = AppScreens.ChineseNewYearCards.route + "/$nameLastname" + "/$message" + "/$receiver")
             }
             else if(selectedItem == "Día de la madre"){
-                navController.navigate(route = AppScreens.MothersDayCards.route)
+                navController.navigate(route = AppScreens.MothersDayCards.route + "/$nameLastname" + "/$message" + "/$receiver")
             }
             else if(selectedItem == "Día del padre"){
+                navController.navigate(route = AppScreens.FathersDayCards.route + "/$nameLastname" + "/$message" + "/$receiver")
 
             }
         }) {

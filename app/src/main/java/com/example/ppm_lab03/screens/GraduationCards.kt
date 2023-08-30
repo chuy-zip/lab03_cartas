@@ -4,7 +4,6 @@ package com.example.ppm_lab03.screens
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,9 +19,7 @@ import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Icon
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -33,12 +30,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
-import com.example.ppm_lab03.navigation.AppScreens
 
 @Composable
 fun GraduationCards(navController: NavController, name: String?, message: String?, receiver: String?){
@@ -52,15 +46,13 @@ fun GraduationCards(navController: NavController, name: String?, message: String
         TopTitle(tittle = "Graduacion", navController)
 
         var currentSelection by remember {mutableStateOf("1")}
-        
+
         when (currentSelection) {
             "1" -> CustomCard(name, message, receiver, 1)
             "2" -> CustomCard(name, message, receiver, 2)
             "3" -> CustomCard(name, message, receiver, 3)
             "4" -> CustomCard(name, message, receiver, 4)
         }
-
-        //BodyContent(navController)
 
         BottomBar(currentSelection){newSelection ->
             currentSelection = newSelection
@@ -80,7 +72,7 @@ fun TopTitle(tittle: String, navController: NavController){
     ) {
         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Arrow back",
             modifier = Modifier
-                .size(48.dp)
+                .size(56.dp)
                 .clickable {
                     navController.popBackStack()
                 }
@@ -158,24 +150,6 @@ fun BottomBar(selection: String, onSelectionChange: (String) -> Unit){
             Text(text = "4")
         }
 
-    }
-}
-
-@Composable
-fun BodyContent(navController: NavController){
-    Column(
-        modifier = Modifier
-            .height(570.dp)
-            .padding(30.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ){
-        Text("Prueba de navegacion")
-        Button(onClick = {
-            navController.navigate(route = AppScreens.MothersDayCards.route)
-        } ){
-            Text(text = "Navegar...")
-        }
     }
 }
 
