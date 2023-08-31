@@ -48,7 +48,7 @@ fun GraduationCards(navController: NavController, name: String?, message: String
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        TopTitle(tittle = "Graduacion", navController)
+        TopTitle(tittle = "Graduación", navController)
 
         var currentSelection by remember {mutableStateOf("1")}
 
