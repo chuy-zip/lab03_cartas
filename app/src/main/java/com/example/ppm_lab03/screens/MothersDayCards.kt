@@ -46,6 +46,6 @@ fun MothersDayCards(navController: NavController, name: String?, message: String
 @Preview
 @Composable
 fun previewtester(){
-    CustomCard(name = "Ricardo", message = "Felicidades", receiver = "Andres", intTest = R.drawable.bday3, Color(93, 201, 248))
+    CustomCard(name = "Ricardo", message = "Felicidades", receiver = "Andres", intTest = R.drawable.mom3, Color(93, 201, 248))
 }
 

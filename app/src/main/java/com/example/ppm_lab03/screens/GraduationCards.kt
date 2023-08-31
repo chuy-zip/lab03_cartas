@@ -164,7 +164,7 @@ fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int,
 
     Box(
         modifier = Modifier
-            .height(650.dp)
+            .height(600.dp)
     ){
         Image(
             painter = painterResource(id = intTest),
@@ -195,7 +195,5 @@ fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int,
         }
 
     }
-
-
 }
 
