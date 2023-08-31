@@ -34,9 +34,9 @@ fun ChineseNewYearCards(
 
         when (currentSelection) {
             "1" -> CustomCard(name, message, receiver, R.drawable.chinese1, Color(244, 136, 135))
-            "2" -> CustomCard(name, message, receiver, R.drawable.chinese2, Color(255, 244, 210))
-            "3" -> CustomCard(name, message, receiver, R.drawable.chinese3, Color(93, 201, 248))
-            "4" -> CustomCard(name, message, receiver, R.drawable.chinese4, Color(48, 105, 172))
+            "2" -> CustomCard(name, message, receiver, R.drawable.chinese2, Color(122, 81, 53))
+            "3" -> CustomCard(name, message, receiver, R.drawable.chinese3, Color(10, 10, 10))
+            "4" -> CustomCard(name, message, receiver, R.drawable.chinese4, Color(10, 10, 10))
 
         }
         BottomBar(currentSelection){newSelection -> currentSelection = newSelection }
