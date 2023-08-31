@@ -199,8 +199,3 @@ fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int,
 
 }
 
-@Preview
-@Composable
-fun previewtester(){
-    CustomCard(name = "Ricardo", message = "Felicidades", receiver = "Andres", intTest = R.drawable.grad4, Color(0, 0, 0))
-}
