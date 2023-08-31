@@ -36,9 +36,15 @@ fun ChineseNewYearCards(navController: NavController, name: String?, message: St
         Column {
             when (currentSelection) {
                 "1" -> CustomCard(name, message, receiver, 1, Color(5,5,5))
+<<<<<<< Updated upstream
                 "2" -> CustomCard(name, message, receiver, 2, Color(5,5,5))
                 "3" -> CustomCard(name, message, receiver, 3, Color(5,5,5))
                 "4" -> CustomCard(name, message, receiver, 4, Color(5,5,5))
+=======
+                "2" -> CustomCard(name, message, receiver, 2,Color(5,5,5))
+                "3" -> CustomCard(name, message, receiver, 3,Color(5,5,5))
+                "4" -> CustomCard(name, message, receiver, 4,Color(5,5,5))
+>>>>>>> Stashed changes
             }
             userCard = currentSelection
         }
