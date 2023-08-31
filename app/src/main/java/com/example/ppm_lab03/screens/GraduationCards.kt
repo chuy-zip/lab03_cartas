@@ -43,7 +43,7 @@ fun GraduationCards(navController: NavController, name: String?, message: String
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        TopTitle(tittle = "Graduacion", navController)
+        TopTitle(tittle = "Graduación", navController)
 
         var currentSelection by remember {mutableStateOf("1")}
 
@@ -157,12 +157,36 @@ fun BottomBar(selection: String, onSelectionChange: (String) -> Unit){
 fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int){
     Column(
         modifier = Modifier
-            .height(570.dp)
-            .padding(30.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "$name \n $message \n $receiver \n Tarjeta: $intTest")
-    }
+            .height(600.dp)
+    ){
+        Image(
+            painter = painterResource(id = intTest),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize()
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.height(115.dp))
+            Text(text = "$name",
+                color = rgbTextColor)
 
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(text = "$receiver",
+                color = rgbTextColor)
+
+            Spacer(modifier = Modifier.height(70.dp))
+
+            Text(text = "$message",
+                color = rgbTextColor,
+                fontSize = 24.sp )
+        }
+
+    }
 }
+
