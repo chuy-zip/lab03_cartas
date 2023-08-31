@@ -1,9 +1,11 @@
 package com.example.ppm_lab03.screens
 
 
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -29,10 +31,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.RectangleShape
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.ppm_lab03.R
 
 @Composable
 fun GraduationCards(navController: NavController, name: String?, message: String?, receiver: String?){
@@ -43,15 +47,15 @@ fun GraduationCards(navController: NavController, name: String?, message: String
         horizontalAlignment = Alignment.CenterHorizontally
     ){
 
-        TopTitle(tittle = "Graduacion", navController)
+        TopTitle(tittle = "Graduación", navController)
 
         var currentSelection by remember {mutableStateOf("1")}
 
         when (currentSelection) {
-            "1" -> CustomCard(name, message, receiver, 1)
-            "2" -> CustomCard(name, message, receiver, 2)
-            "3" -> CustomCard(name, message, receiver, 3)
-            "4" -> CustomCard(name, message, receiver, 4)
+            "1" -> CustomCard(name, message, receiver, R.drawable.grad1, Color(255, 255, 255))
+            "2" -> CustomCard(name, message, receiver, R.drawable.grad2, Color(0, 0, 0))
+            "3" -> CustomCard(name, message, receiver, R.drawable.grad3, Color(96, 130, 182))
+            "4" -> CustomCard(name, message, receiver, R.drawable.grad4, Color(0, 0, 0))
         }
 
         BottomBar(currentSelection){newSelection ->
@@ -72,6 +76,7 @@ fun TopTitle(tittle: String, navController: NavController){
     ) {
         Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "Arrow back",
             modifier = Modifier
+                .padding(14.dp)
                 .size(56.dp)
                 .clickable {
                     navController.popBackStack()
@@ -154,15 +159,39 @@ fun BottomBar(selection: String, onSelectionChange: (String) -> Unit){
 }
 
 @Composable
-fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int){
-    Column(
-        modifier = Modifier
-            .height(570.dp)
-            .padding(30.dp),
-        verticalArrangement = Arrangement.Top,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
-        Text(text = "$name \n $message \n $receiver \n Tarjeta: $intTest")
-    }
+fun CustomCard(name: String?, message: String?, receiver: String?, intTest: Int, rgbTextColor: Color){
 
+    Box(
+        modifier = Modifier
+            .height(600.dp)
+    ){
+        Image(
+            painter = painterResource(id = intTest),
+            contentDescription = null,
+            modifier = Modifier.fillMaxSize()
+        )
+        Column(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(16.dp),
+            verticalArrangement = Arrangement.Top,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Spacer(modifier = Modifier.height(115.dp))
+            Text(text = "$name",
+                color = rgbTextColor)
+
+            Spacer(modifier = Modifier.height(10.dp))
+
+            Text(text = "$receiver",
+                color = rgbTextColor)
+
+            Spacer(modifier = Modifier.height(70.dp))
+
+            Text(text = "$message",
+                color = rgbTextColor,
+                fontSize = 24.sp )
+        }
+
+    }
 }
