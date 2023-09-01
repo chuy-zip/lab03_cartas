@@ -33,7 +33,7 @@ fun MothersDayCards(navController: NavController, name: String?, message: String
             "1" -> CustomCard(name, message, receiver, R.drawable.mom1, Color(191, 82, 79))
             "2" -> CustomCard(name, message, receiver, R.drawable.mom2, Color(0, 0, 0))
             "3" -> CustomCard(name, message, receiver, R.drawable.mom3, Color(150, 93, 99))
-            "4" -> CustomCard(name, message, receiver, 4, Color(0, 0, 0))
+            "4" -> CustomCard(name, message, receiver, R.drawable.mom4, Color(0, 0, 0))
 
         }
 
